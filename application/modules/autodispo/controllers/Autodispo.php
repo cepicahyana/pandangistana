@@ -34,9 +34,9 @@ class Autodispo extends CI_Controller {
 	}
 	 function save_()
 	{
-	$idp=$this->security->xss_clean($this->input->post("idpengaturan"));
-	$val=$this->security->xss_clean($this->input->post("idkonten"));
-	$data=$this->mdl->save_($idp,$val);
+	$set=$this->security->xss_clean($this->input->post("set"));
+	$id=$this->security->xss_clean($this->input->post("id"));
+	$data=$this->mdl->save_($id,$set);
 	echo json_encode($data);
 	}
 }

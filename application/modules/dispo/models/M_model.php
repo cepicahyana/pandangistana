@@ -369,12 +369,12 @@ class M_model extends ci_Model
 	 
 	function setTolak($id,$alasan)
 	{
-	/*	$this->db->set("verifikator",$this->idu());
+		/*$this->db->set("verifikator",$this->idu());
 		$this->db->set("id_alasan",$alasan);
 		$this->db->set("sts_verifikasi",2);
 		$this->db->set("sts_acc",3);
 		$this->db->where("id",$id);
-		return $this->db->update("data_peserta");*/  
+		return $this->db->update("data_peserta");*/
 		return $this->kirimEmail($id,$alasan);
 	}
 function kirimEmail($id,$id_alasan)
@@ -394,11 +394,12 @@ function kirimEmail($id,$id_alasan)
             $subject=   "HUT-RI75 ISTANA NEGARA"; 
             
             $phone  =   $data->hp; 
-			$sts    =   $this->m_reff->kirimEmail($to,$subject,$isi);  
-			$isiWa  =   $this->isiWaPenolakan($data->nama,$data->nik,$alasan);
-			
-    		$this->m_reff->kirimWa($phone,$isiWa);
+			$sts    =   $this->m_reff->kirimEmail($to,$subject,$isi);   
 			if($sts["sts"]=="ok"){
+				
+				$isiWa  =   $this->isiWaPenolakan($data->nama,$data->nik,$alasan); 
+				$this->m_reff->kirimWa($phone,$isiWa);
+				
 					$this->db->set("verifikator",$this->idu());
 					$this->db->set("tgl_verifikasi",date('Y-m-d'));
             		$this->db->set("id_alasan",$id_alasan);

@@ -88,6 +88,11 @@ class Model extends CI_Model  {
 	}
 	function upload_file($form,$dok,$idu,$id=null,$tabel="admin")
 	{		
+	 $allowed_image_extension = array(
+        "png",
+        "jpg",
+        "jpeg"
+    );
 		$var=array();
 		$var["size"]=""; 
 		$var["file"]="";
@@ -107,7 +112,13 @@ class Model extends CI_Model  {
 			$extention=str_replace(" ","_",strtoupper($ex));
 			
 		 $maxsize = 3000000;
-		 if($size>=$maxsize)
+		 $file_extension = pathinfo($_FILES[$form]["name"], PATHINFO_EXTENSION);
+		 if(!in_array($file_extension, $allowed_image_extension)){
+			 $var["validasi"]=false; 
+			 $var["info"]="file tidak diizinkan silahkan upload file lain."; 
+			 return $var;
+		 }
+		 elseif($size>=$maxsize)
 		 {
 			$var["size"]=$size; 
 		 }elseif($extention!="JPG" AND $extention!="PNG"){
