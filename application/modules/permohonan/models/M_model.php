@@ -18,6 +18,54 @@ class M_model extends ci_Model
 		$query.=" limit ".$_POST['start'].",".$_POST['length'];
 		return $this->db->query($query)->result();
 	}
+
+	function getProvByNik($nik)
+	{		$this->db->where("sts_acc!=",3);
+		$this->db->select("sum(jml_undangan) as jml");
+		$this->db->where("SUBSTR(nik,1,2)",substr($nik,0,2));
+		$return=$this->db->get("v_peserta")->row();
+		return isset($return->jml)?($return->jml):"0";
+	}function getKabByNik($nik)
+	{		$this->db->where("sts_acc!=",3);
+		$this->db->select("sum(jml_undangan) as jml");
+		$this->db->where("SUBSTR(nik,1,4)",substr($nik,0,4));
+		$return=$this->db->get("v_peserta")->row();
+		return isset($return->jml)?($return->jml):"0";
+	}
+
+
+	public function update_peserta_online(){
+		$id = $_POST["id"];
+
+		$f = $_POST["f"];
+
+		$this->db->where('id', $id);
+		return $this->db->update('data_peserta', $f);
+	}
+
+	public function delete_peserta_online(){
+		$id = $_POST["id"];
+
+		$this->db->where("id", $id);
+		return $this->db->delete('data_peserta');
+	}
+
+	public function update_peserta_persus(){
+		$id = $_POST["id"];
+
+		$f = $_POST["f"];
+
+		$this->db->where('id', $id);
+		return $this->db->update('data_persus', $f);
+	}
+
+	public function delete_peserta_persus(){
+		$id = $_POST["id"];
+
+		$this->db->where("id", $id);
+		return $this->db->delete('data_persus');
+	}
+
 	private function _get_datatables_peserta()
 	{	$filter		=	"";
 	

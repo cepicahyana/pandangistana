@@ -49,13 +49,45 @@ class Permohonan extends CI_Controller {
 			$this->_template($data);
 		}
 		 
-	}	 
+	}
+
 	function online()
 	{
 		$this->index();
 	}
 	
-	
+	function detail_peserta_persus(){
+		echo $this->load->view("getDetailPesertaPersus");
+	}
+
+	function edit_peserta_persus(){
+		echo $this->load->view("getEditPesertaPersus");
+	}
+
+	function update_peserta_persus(){
+		echo $this->mdl->update_peserta_persus();
+	}
+
+	function delete_peserta_persus(){
+		echo $this->mdl->delete_peserta_persus();
+	}
+
+	function detail_peserta_online(){
+		echo $this->load->view("getDetailPesertaOnline");
+	}
+
+	function edit_peserta_online(){
+		echo $this->load->view("getEditPesertaOnline");
+	}
+
+	function update_peserta_online(){
+		echo $this->mdl->update_peserta_online();
+	}
+
+	function delete_peserta_online(){
+		echo $this->mdl->delete_peserta_online();
+	}
+
 	function ajax_peserta()
 	{
 		$list = $this->mdl->get_peserta();
@@ -148,7 +180,9 @@ class Permohonan extends CI_Controller {
 												<li>
 												  
 													<a class="dropdown-item" href="javascript:detail(`'.$dataDB->id.'`)">Detail</a>
-													<a class="dropdown-item" href="javascript:detail(`'.$dataDB->id.'`)">Edit</a> 
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_edit" onclick="edit_peserta_online(`'.$dataDB->id.'`)">
+														Edit
+													</a>
 												</li>
 											</ul>
 
@@ -162,10 +196,13 @@ class Permohonan extends CI_Controller {
 												<li>
 												<a class="'.$disbutton.' dropdown-item" href="javascript:sendNotif(`'.$dataDB->id.'`)">Kirim Notif </a>
 												<div class="dropdown-divider"></div>
-													<a class="dropdown-item"  href="javascript:detail(`'.$dataDB->id.'`)">Detail</a>
-													<a class="dropdown-item"  href="javascript:edit(`'.$dataDB->id.'`)">Edit</a>
-													<a class="dropdown-item"  href="javascript:hapus(`'.$dataDB->id.'`)">Hapus</a>
-													
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_detail" onclick="detail_peserta_online(`'.$dataDB->id.'`)">Detail</a>
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_edit" onclick="edit_peserta_online(`'.$dataDB->id.'`)">
+														Edit
+													</a>
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_delete" onclick="getId(`'.$dataDB->id.'`)" >
+														Hapus
+													</a> 													
 													
 												</li>
 											</ul>
@@ -180,9 +217,13 @@ class Permohonan extends CI_Controller {
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
 												  
-													<a class="dropdown-item" href="#">Detail</a>
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Hapus</a> 
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_detail" onclick="detail_peserta_online(`'.$dataDB->id.'`)">Detail</a>
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_edit" onclick="edit_peserta_online(`'.$dataDB->id.'`)">
+														Edit
+													</a>
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_delete" onclick="getId(`'.$dataDB->id.'`)" >
+														Hapus
+													</a> 
 													
 												</li>
 											</ul>
@@ -281,8 +322,10 @@ class Permohonan extends CI_Controller {
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
 												  
-													<a class="dropdown-item" href="javascript:detail(`'.$dataDB->id.'`)">Detail</a>
-													<a class="dropdown-item" href="javascript:detail(`'.$dataDB->id.'`)">Edit</a> 
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_detail" onclick="detail_peserta_persus(`'.$dataDB->id.'`)">Detail</a>
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_edit" onclick="edit_peserta_persus(`'.$dataDB->id.'`)">
+														Edit
+													</a>
 												</li>
 											</ul>
 
@@ -295,10 +338,13 @@ class Permohonan extends CI_Controller {
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
 												  
-													<a class="dropdown-item"  href="javascript:detail(`'.$dataDB->id.'`)">Detail</a>
-													<a class="dropdown-item"  href="javascript:edit(`'.$dataDB->id.'`)">Edit</a>
-													<a class="dropdown-item"  href="javascript:hapus(`'.$dataDB->id.'`)">Hapus</a>
-													
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_detail" onclick="detail_peserta_persus(`'.$dataDB->id.'`)">Detail</a>
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_edit" onclick="edit_peserta_persus(`'.$dataDB->id.'`)">
+														Edit
+													</a>
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_delete" onclick="getId(`'.$dataDB->id.'`)" >
+														Hapus
+													</a> 													
 													
 												</li>
 											</ul>
@@ -313,10 +359,13 @@ class Permohonan extends CI_Controller {
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
 												  
-													<a class="dropdown-item" href="#">Detail</a>
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Hapus</a> 
-													
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_detail" onclick="detail_peserta_persus(`'.$dataDB->id.'`)">Detail</a>
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_edit" onclick="edit_peserta_persus(`'.$dataDB->id.'`)">
+														Edit
+													</a>
+													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_delete" onclick="getId(`'.$dataDB->id.'`)" >
+														Hapus
+													</a> 													
 												</li>
 											</ul>
 

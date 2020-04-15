@@ -29,7 +29,7 @@ if(!$data){echo '
  <b style='font-size:20px'>Verifikasi</b>
  <!-- <span style='margin-left:300px;'><button class="btn   bg-teal" type="button"  ><b class="fas fa-chevron-circle-left"> </b> Sebelumnya </button>
  <button  class=' btn' type="button" onclick="selanjutnya(``)" >Selanjutnya <b class="fas fa-chevron-circle-right"> </b> </button>
-</span>--->
+</span>-->
 <hr>
 
 <div class='row'>
