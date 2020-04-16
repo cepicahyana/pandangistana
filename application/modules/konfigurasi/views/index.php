@@ -21,14 +21,14 @@
 								<thead  class='sadow bg-blue'>			
 									<th class='thead' axis="string" width='15px'>&nbsp;NO</th>
 								
-									<th class='thead' >NAMA PENGATURAN </th>
-									<th class='thead' >SETING </th>
+									<th class='thead' >Konfigurasi </th>
+									<th class='thead' >Value </th>
 									 
 								</thead>
 								<?php   $no=1;?>
 								<tr>
 								<td><?php echo $no++;?></td>
-								<td>Maksimal distribusi perhari</td>
+								<td>Maksimal distribusi undangan perhari</td>
 								<td>
 								 
 								<input class='form-control' type="text" id="val_1" name="val_1" onchange='save_(`1`,`val_1`)' value="<?php echo $this->m_reff->goField("tm_pengaturan","val","where id='1' ");?>">
@@ -36,36 +36,7 @@
 								</td>
 								</tr>
 								
-								<tr>
-								<td><?php echo $no++;?></td>
-								<td>Usermail</td>
-								<td>
-								 
-								<input class='form-control' type="text" id="val_2" name="val_2" onchange='save_(`2`,`val_2`)' value="<?php echo $this->m_reff->goField("tm_pengaturan","val","where id='2' ");?>">
-							 
-								</td>
-								</tr>
-								
-								<tr>
-								<td><?php echo $no++;?></td>
-								<td>Password email</td>
-								<td>
-								 
-								<input class='form-control' type="password" id="val_3" name="val_3" onchange='save_(`3`,`val_3`)' value="<?php echo $this->m_reff->goField("tm_pengaturan","val","where id='3' ");?>">
-							 
-								</td>
-								</tr>
-								
-								<tr>
-								<td><?php echo $no++;?></td>
-								<td>Subject email</td>
-								<td>
-								 
-								<input class='form-control' type="text" id="val_3" name="val_3" onchange='save_(`4`,`val_4`)' value="<?php echo $this->m_reff->goField("tm_pengaturan","val","where id='4' ");?>">
-							 
-								</td>
-								</tr>
-								
+							
 							 
 								
 									<tr>

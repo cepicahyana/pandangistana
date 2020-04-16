@@ -26,7 +26,7 @@
                                     <thead>
                                         <tr >
                                             <th  class='bg-primary'>NO</th>
-                                            <th  class='bg-primary'>NAMA BLOK</th>
+                                            <th  class='bg-primary'>BLOK</th>
                                             <th  class='bg-primary'>QUOTA</th>
                                             <th  class='bg-primary'>DISPO</th>
                                             <th  class='bg-primary'>DISTRIBUSI</th>
@@ -39,6 +39,12 @@
 									$no=1;
 									foreach($datablokpagi as $val)
 									{
+										if($val->peruntukan==1)
+										{
+											$checked="checked";
+										}else{
+											$checked="";
+										}
 									?>
                                       <tr>
 									  <td><?php echo $no++;?></td>
@@ -49,7 +55,7 @@
 									  <td>
 									  <div class="form-check">
 												<label class="form-check-label">
-													<input class="form-check-input" value="1" type="checkbox" name='cek<?php echo $val->id;?>'>
+													<input <?php echo $checked;?> onclick="setCek(`cek<?php echo $val->id?>`,`<?php echo $val->id?>`)" class="form-check-input" value="1" type="checkbox" name='cek<?php echo $val->id;?>'>
 													<span class="form-check-sign">pilih</span>
 												</label>
 											</div>
@@ -71,22 +77,29 @@
                         
                         <div class="body"><center><b>DATA BLOK SORE</b></center>
                             <div class="table-responsive">
-                                <table class="entry" width="100%">
+                                <table class="entry2" width="100%">
                                     <thead >
-                                        <tr class="bg-pink">
-                                            <th>NO</th>
-                                            <th>NAMA BLOK</th>
-                                            <th>QUOTA</th>
-                                            <th>DISPO</th>
-                                            <th>DISTRIBUSI</th>
+                                        <tr  >
+                                           <th  class='bg-primary'>NO</th>
+                                            <th  class='bg-primary'>BLOK</th>
+                                            <th  class='bg-primary'>QUOTA</th>
+                                            <th  class='bg-primary'>DISPO</th>
+                                            <th  class='bg-primary'>DISTRIBUSI</th>
+                                            <th  class='bg-primary'>AUTODISPO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 									<?php 
 									$databloksore=$this->db->query("select * from tr_blok where jenis=2 order by nama asc ")->result();
-									$no=1;
+									$no=1;$val="";
 									foreach($databloksore as $val)
 									{
+										if($val->peruntukan==1)
+										{
+											$checked="checked";
+										}else{
+											$checked="";
+										}
 									?>
                                       <tr>
 									  <td><?php echo $no++;?></td>
@@ -94,7 +107,15 @@
 									  <td><?php echo $this->umum->jmlQuota(2,$val->id);?></td>
 									  <td><?php echo $this->umum->jmlDispoByBlok(2,$val->id);?></td>
 									  <td><?php echo $this->umum->jmlDistribusi(2,$val->id);?></td>
-									   
+									   <td>
+									 <div class="form-check">
+												<label class="form-check-label">
+													<input <?php echo $checked;?> onclick="setCek(`cek<?php echo $val->id?>`,`<?php echo $val->id?>`)" class="form-check-input" value="1" type="checkbox" name='cek<?php echo $val->id;?>'>
+													<span class="form-check-sign">pilih</span>
+												</label>
+											</div>
+									  
+									  </td>
 									  </tr>  
 									<?php } ?>  
                                     </tbody>
@@ -124,18 +145,26 @@
   
   //$('#val_6').jqte();
  
- function save_(idpengaturan,idkonten)
+ function setCek(name,id)
 	 {	 
-	 var idkonten=$("[name='"+idkonten+"']").val();
-		 $.ajax({
-		 url:"<?php echo base_url()?>konfigurasi/save_",
-		 data: "idpengaturan="+idpengaturan+"&idkonten="+idkonten,
+	 loading("loading");
+	 var idkonten=$("[name='"+name+"']").is(":checked"); 
+	 if(idkonten==true)
+	 {
+		 var set=1;
+	 }else{
+		var set=0;
+	 }
+	 	 $.ajax({
+		 url:"<?php echo base_url()?>autodispo/save_",
+		 data: "id="+id+"&set="+set,
 		 method:"POST",
 		 success: function(data)
             {	 
-				 notif("   Tersimpan! ");
+			unblock("loading");
             }
 		});
+		 
 	 }
 	 
     

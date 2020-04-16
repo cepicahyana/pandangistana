@@ -254,6 +254,9 @@ class M_reff extends ci_Model
 	    $user=$this->tm_pengaturan(2);
 		$pass=$this->tm_pengaturan(3);
 		$from=$this->tm_pengaturan(4);
+		$host=$this->tm_pengaturan(18);
+		$port=$this->tm_pengaturan(19);
+		$smptScure=$this->tm_pengaturan(20);
         $this->load->library('PHPMailer_load'); //Load Library PHPMailer
         $mail = $this->phpmailer_load->load(); // Mendefinisikan Variabel Mail
        
@@ -266,16 +269,16 @@ class M_reff extends ci_Model
      	if(file_exists($path)){
           $mail->addAttachment($path,$namaFile);
      	}  
-        
-        $mail->Host = 'ssl://smtp.gmail.com'; // Host dari server SMTP
-    //    $mail->isSMTP();  // Mengirim menggunakan protokol SMTP
-        $mail->Port = 465;
+        $mail->CharSet  = "UTF-8";
+        $mail->Host 	= $host; // Host dari server SMTP
+        $mail->isSMTP();  // Mengirim menggunakan protokol SMTP
+        $mail->Port 	= $port;
         $mail->SMTPAuth = true; // Autentikasi SMTP
         $mail->Username = $user;
         $mail->Password = $pass;
-        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPSecure = $smptScure;
          $mail->SMTPOptions      = array(
-                                        'ssl' => array(
+                                        ''.$smptScure.'' => array(
                                             'verify_peer' => false,
                                             'verify_peer_name' => false,
                                             'allow_self_signed' => true
@@ -291,7 +294,7 @@ class M_reff extends ci_Model
                     if($path && file_exists($path) && $delfile){
                         unlink($path);
                     }
-                } // Kirim email dengan cek kondisi
+                }  
                  
                   return $var;
     }

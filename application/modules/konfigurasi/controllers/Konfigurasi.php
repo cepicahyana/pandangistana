@@ -31,6 +31,19 @@ class Konfigurasi extends CI_Controller {
 		}
 		
 	}
+	public function email()
+	{
+		 	
+		$ajax=$this->input->get_post("ajax");
+		if($ajax=="yes")
+		{
+			echo	$this->load->view("email");
+		}else{
+			$data['konten']="email";
+			$this->_template($data);
+		}
+		
+	}
 	 function save_()
 	{
 	$idp=$this->security->xss_clean($this->input->post("idpengaturan"));

@@ -105,7 +105,10 @@
 										<a class='menuclick' href="<?php echo base_url()?>autodispo">Atur autodispo untuk umum </a>
 									</li>
 									<li>
-										<a class='menuclick' href="<?php echo base_url()?>konfigurasi">Konfigurasi</a>
+										<a class='menuclick' href="<?php echo base_url()?>konfigurasi">Konfigurasi Konten</a>
+									</li>
+									<li>
+										<a class='menuclick' href="<?php echo base_url()?>konfigurasi/email">Konfigurasi Email</a>
 									</li>
 								</ul>
 							</div>

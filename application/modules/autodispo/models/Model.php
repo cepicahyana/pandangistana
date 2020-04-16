@@ -14,11 +14,11 @@ class Model extends CI_Model  {
 	}
 	
 	 
-	function save_($idp,$val)
+	function save_($id,$set)
 	{
-		$this->db->set("val",$val);
-		$this->db->where("id",$idp);
-	return $this->db->update("tm_pengaturan");
+		$this->db->set("peruntukan",$set);
+		$this->db->where("id",$id);
+	return $this->db->update("tr_blok");
 	}
 	
 	 
