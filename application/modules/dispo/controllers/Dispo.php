@@ -235,13 +235,13 @@ class Dispo extends CI_Controller {
 			{
 				$button			=	'<div class=" ">
 											<button aria-expanded="false" class="btn-block btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-												<b>OPTION</b>
+												<b>Action</b>
 											</button>
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
 												  
-													<a class="dropdown-item" href="javascript:detail(`'.$dataDB->id.'`)">Detail</a>
-													<a class="dropdown-item" href="javascript:detail(`'.$dataDB->id.'`)">Edit</a> 
+													<a class="dropdown-item"  data-toggle="modal" data-target="#mdl_detail" href="javascript:(0)" onclick="detail_peserta_persus(`'.$dataDB->id.'`)">Detail</a>
+													<a class="dropdown-item"   data-toggle="modal" data-target="#mdl_edit" href="javascript:(0)" onclick="edit_peserta_persus(`'.$dataDB->id.'`)">Edit</a> 
 												</li>
 											</ul>
 
@@ -249,14 +249,14 @@ class Dispo extends CI_Controller {
 			}elseif(  !$dataDB->diterima_oleh){
 			$button			=	'<div class=" ">
 											<button aria-expanded="false" class="btn-block btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-												<b>OPTION</b>
+												<b>Action</b>
 											</button>
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
 												  
-													<a class="dropdown-item"  href="javascript:detail(`'.$dataDB->id.'`)">Detail</a>
-													<a class="dropdown-item"  href="javascript:edit(`'.$dataDB->id.'`)">Edit</a>
-													<a class="dropdown-item"  href="javascript:hapus(`'.$dataDB->id.'`)">Hapus</a>
+													<a class="dropdown-item"   data-toggle="modal" href="javascript:(0)" data-target="#mdl_detail" onclick="detail_peserta_persus(`'.$dataDB->id.'`)">Detail</a>
+													<a class="dropdown-item"   data-toggle="modal" href="javascript:(0)" data-target="#mdl_edit" onclick="edit_peserta_persus(`'.$dataDB->id.'`)">Edit</a>
+													<a class="dropdown-item"   data-toggle="modal" href="javascript:(0)" data-target="#mdl_delete" onclick="getId(`'.$dataDB->id.'`)">Hapus</a>
 													
 													
 												</li>
@@ -267,14 +267,14 @@ class Dispo extends CI_Controller {
 			{
 				$button			=	'<div class=" ">
 											<button aria-expanded="false" class="btn-block btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-												<b>OPTION</b>
+												<b>Action</b>
 											</button>
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
 												  
-													<a class="dropdown-item" href="#">Detail</a>
-													<a class="dropdown-item" href="#">Edit</a>
-													<a class="dropdown-item" href="#">Hapus</a> 
+													<a class="dropdown-item"   data-toggle="modal"  href="javascript:(0)" data-target="#mdl_detail" onclick="detail_peserta_persus(`'.$dataDB->id.'`)">Detail</a>
+													<a class="dropdown-item"  data-toggle="modal"  href="javascript:(0)" data-target="#mdl_edit" onclick="edit_peserta_persus(`'.$dataDB->id.'`)">Edit</a>
+													<a class="dropdown-item"  data-toggle="modal"  href="javascript:(0)" data-target="#mdl_delete" onclick="getId(`'.$dataDB->id.'`)">Hapus</a> 
 													
 												</li>
 											</ul>

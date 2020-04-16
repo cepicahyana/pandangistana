@@ -174,7 +174,7 @@ class Permohonan extends CI_Controller {
 			{
 				$button			=	'<div class=" ">
 											<button aria-expanded="false" class="btn-block btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-												<b>OPTION</b>
+												<b>Action</b>
 											</button>
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
@@ -190,12 +190,12 @@ class Permohonan extends CI_Controller {
 			}elseif($dataDB->jadwal_distribusi and !$dataDB->diterima_oleh){
 			$button			=	'<div class=" ">
 											<button aria-expanded="false" class="btn-block btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-												<b>OPTION</b>
+												<b>Action</b>
 											</button>
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
-												<a class="'.$disbutton.' dropdown-item" href="javascript:sendNotif(`'.$dataDB->id.'`)">Kirim Notif </a>
-												<div class="dropdown-divider"></div>
+												 
+												 
 													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_detail" onclick="detail_peserta_online(`'.$dataDB->id.'`)">Detail</a>
 													<a class="dropdown-item" href="javascript:(0)" data-toggle="modal" data-target="#mdl_edit" onclick="edit_peserta_online(`'.$dataDB->id.'`)">
 														Edit
@@ -212,7 +212,7 @@ class Permohonan extends CI_Controller {
 			{
 				$button			=	'<div class=" ">
 											<button aria-expanded="false" class="btn-block btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-												<b>OPTION</b>
+												<b>Action</b>
 											</button>
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
@@ -317,7 +317,7 @@ class Permohonan extends CI_Controller {
 			{
 				$button			=	'<div class=" ">
 											<button aria-expanded="false" class="btn-block btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-												<b>OPTION</b>
+												<b>Action</b>
 											</button>
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
@@ -333,7 +333,7 @@ class Permohonan extends CI_Controller {
 			}elseif(  !$dataDB->diterima_oleh){
 			$button			=	'<div class=" ">
 											<button aria-expanded="false" class="btn-block btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-												<b>OPTION</b>
+												<b>Action</b>
 											</button>
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>
@@ -354,7 +354,7 @@ class Permohonan extends CI_Controller {
 			{
 				$button			=	'<div class=" ">
 											<button aria-expanded="false" class="btn-block btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-												<b>OPTION</b>
+												<b>Action</b>
 											</button>
 											<ul style="position: absolute; transform: translate3d(0px, 43px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start" class="dropdown-menu" role="menu">
 												<li>

@@ -12,7 +12,7 @@
 <table class="entry" width="100%">
 <thead>
 <tr>
-<th colspan="3" >ACARA PAGI</th>
+<th colspan="3" >ACARA PAGI <span style='float:right'>Total : <?php echo $this->mdl->jmlDistribusiAcara($tgl,1);?></span></th>
 </tr>
 <tr>
 <th>BLOK</th>
@@ -42,7 +42,7 @@ foreach($data as $data)
 <table class="entry" width="100%">
 <thead>
 <tr>
-<th colspan="3" style='background-color:#1572E8'>ACARA SORE</th>
+<th colspan="3" style='background-color:#1572E8'>ACARA SORE  <span style='float:right'>Total : <?php echo $this->mdl->jmlDistribusiAcara($tgl,2);?></span></th>
 </tr>
 <tr>
 <th style='background-color:#1572E8'>BLOK</th>

@@ -24,11 +24,11 @@
 
 <div class="row pt-4">
 	<div class="col-md-4 col-sm-12">
-		<label>Jumlah Pagi</label>
+		<label>Jumlah Pagi (permohonan awal)</label>
 		<input type="text" name="f[jml_pagi]" class="form-control" required="" value="<?php echo $d['jml_pagi'] ?>">
 	</div>
 	<div class="col-md-4 col-sm-12">
-		<label>Jumlah Sore</label>
+		<label>Jumlah Sore (permohonan awal)</label>
 		<input type="text" name="f[jml_sore]" class="form-control" required="" value="<?php echo $d['jml_sore'] ?>">
 	</div>
 </div>

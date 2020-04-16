@@ -48,7 +48,7 @@
 									<th    class='thead ' ><center>Disposisi</center></th> 
 									<th    class='thead ' ><center>Pengambilan</center></th> 
 									<th    class='thead ' ><center>Jenis</center></th> 
-									<th    class='thead ' >OPSION</th> 
+									<th    class='thead ' >Action</th> 
 								 </thead>
 					</table>
 					 

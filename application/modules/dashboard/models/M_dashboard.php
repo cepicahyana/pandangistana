@@ -10,6 +10,19 @@ class M_dashboard extends ci_Model
      	}
 	 
  
+	function jmlDistribusiAcara($tgl,$acara)
+	{
+		if($acara==1)
+		{
+			$this->db->where("blok1 IS NOT NULL"); 
+		}else{
+				$this->db->where("blok2 IS NOT NULL"); 
+		}
+		
+		$this->db->where("jadwal_distribusi",$tgl);
+		return $this->db->get("data_peserta")->num_rows();
+	}
+	
 	function jmlDistribusi($tgl)
 	{
 		$this->db->where("diterima_tgl",null);
